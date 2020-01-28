@@ -56,7 +56,16 @@ export class Donation extends Component {
   }
 
   paypal = () => {
-    
+    // axios.post('http://localhost:4000/pay',{},
+    // {countValue: 1}).then(res=>{console.log(res.data)}).catch(err=>{console.log(err)})
+    const payload = {
+      data: this.state.campaign
+    }
+    axios({
+      method:"POST",
+      url:'/api/save',
+      data:payload
+    }).then(res=>{console.log(res.data)}).catch(err=>{console.log(err)})
   }
 
 
@@ -69,8 +78,8 @@ export class Donation extends Component {
         <main>
           <div className='container'>
             <Link to={`/campaign/${this.props.match.params.campaign}`}>Go back</Link>
-            {/* <form onSubmit={this.handleOnSubmit}> */}
-            <form action='http://localhost:4000/pay' method='post'>
+            <form onSubmit={this.handleOnSubmit}>
+            {/* <form action='http://localhost:4000/pay' method='post'> */}
               <input
                 type='text'
                 name='first_name'

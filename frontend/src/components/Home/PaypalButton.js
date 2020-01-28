@@ -4,7 +4,7 @@ import axios from 'axios';
 import {strapi} from '../functions'
 export class PaypalButton extends Component {
   test = () => {
-    axios.get(`${strapi}/feed`).then(res=>{console.log(res.data)}).catch(err=>{console.log(err)})
+    axios.get(`http://localhost:4000/success`).then(res=>{console.log(res.data)}).catch(err=>{console.log(err)})
 
   }
   render() {
