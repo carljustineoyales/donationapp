@@ -1,0 +1,38 @@
+{
+  "connection": "default",
+  "collectionName": "supporters",
+  "info": {
+    "name": "supporters"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "donation": {
+      "type": "float",
+      "default": 0
+    },
+    "email": {
+      "type": "email"
+    },
+    "campaigns": {
+      "via": "supporters",
+      "collection": "campaigns",
+      "dominant": true
+    },
+    "anonymous": {
+      "type": "boolean",
+      "default": true
+    },
+    "donation_ref": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    }
+  }
+}

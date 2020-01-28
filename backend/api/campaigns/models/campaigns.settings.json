@@ -1,0 +1,62 @@
+{
+  "connection": "default",
+  "collectionName": "campaigns",
+  "info": {
+    "name": "campaigns"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "richtext",
+      "required": true
+    },
+    "goal": {
+      "type": "float",
+      "required": true
+    },
+    "raised": {
+      "type": "float",
+      "default": 0,
+      "required": false
+    },
+    "username": {
+      "type": "string"
+    },
+    "verified": {
+      "type": "boolean",
+      "default": false,
+      "required": false
+    },
+    "deleted": {
+      "type": "boolean",
+      "default": false,
+      "required": false
+    },
+    "author": {
+      "plugin": "users-permissions",
+      "model": "user",
+      "via": "campaigns"
+    },
+    "reference": {
+      "type": "biginteger",
+      "unique": false
+    },
+    "supporters": {
+      "collection": "supporters",
+      "via": "campaigns"
+    },
+    "image": {
+      "collection": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}
