@@ -19,7 +19,7 @@ export class Home extends Component {
     if (withToken()) {
       return (
         <div>
-<Feed/>
+          <Feed/>
         </div>
       );
 

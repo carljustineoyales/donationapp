@@ -12,11 +12,15 @@ import EditProfile from './components/pages/EditProfile';
 import test from './components/test/test';
 import PaypalButton from './components/Home/PaypalButton';
 
+
+
+
+
 function App() {
 
   return (
 <div>
-    <Router>
+    <Router >
       <Switch>
 
         <Route exact path="/test" component={test}/>
@@ -28,9 +32,9 @@ function App() {
         <Route path="/review/campaign/:id" component={SingleCard}/>
         <Route path="/profile/:id" component={Profile}/>
         <Route path="/profile-edit/:id" component={EditProfile}/>
-        <Route path="/donation/:campaign" component={Donation}/>
-        <Route path="/donation/:campaign" component={PaypalButton}/>
-      </Switch>
+        <Route path="/donation/:id" component={Donation}/>
+        {/* <Route path="/donation/:campaign" component={PaypalButton}/> */}
+        </Switch>
     </Router>
 </div>
   );

@@ -14,11 +14,14 @@ export class SingleCard extends Component {
       username: '',
       id: '',
       author: [],
-      error: ''
+      error: '',
+      deleted:false,
+      verified:false,
     }
   }
 
   componentDidMount() {
+    window.scrollTo(0, 0)
     axios
       .get(`${strapi}/campaigns/${this.props.match.params.id}`)
       .then(res => {
@@ -29,12 +32,16 @@ export class SingleCard extends Component {
           goal: res.data.goal,
           description: res.data.description,
           author: res.data.author,
-          username: res.data.author.username
+          username: res.data.author.username,
+          deleted:res.data.deleted,
+          verified:res.data.verified,
         })
         console.log(this.state)
       })
       .catch(err => console.log(err))
-
+     
+       
+      
   }
 
   toggleEditMode = (event) => {
@@ -98,6 +105,8 @@ export class SingleCard extends Component {
       title,
       goal,
       description,
+      deleted,
+      verified,
       // author,
       username,
       // id
@@ -148,6 +157,9 @@ export class SingleCard extends Component {
                     {editMode
                       ? <input type='number' className='form-control w-25' value={goal} onChange={this.handleOnChange('goal')}/>
                       : <h2 className="text">{goal}</h2>
+}
+{
+  (deleted) ? <h6>Status: Deleted</h6> : (verified) ? <h6>Status: Active</h6> : <h6>Status: Pending</h6>
 }
                   </div>
                   <br/>
@@ -200,17 +212,17 @@ export class SingleCard extends Component {
                     }}>
                       <Link
                         to={`/donation/${this.props.match.params.id}`}
-                        class="btn btn-primary w-100">Paypal</Link>
+                        className="btn btn-primary w-100">Paypal</Link>
                     </div>
                     <div style={{
                       width: '70%'
                     }}>
-                      <button class="btn btn-primary w-100">Gcash</button>
+                      <button className="btn btn-primary w-100">Gcash</button>
                     </div>
                     <div style={{
                       width: '70%'
                     }}>
-                      <button class="btn btn-primary w-100">Bank Trasfer</button>
+                      <button className="btn btn-primary w-100">Bank Trasfer</button>
                     </div>
                   </div>
                   <div

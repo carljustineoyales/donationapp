@@ -4,6 +4,9 @@ import CardList from './CardList';
 import Navbar from './Navbar';
 
 export class Feed extends Component {
+  componentDidMount(){
+    window.scrollTo(0, 0)
+  }
   render() {
     return (
       <div>

@@ -21,8 +21,8 @@
       "type": "email"
     },
     "campaigns": {
-      "via": "supporters",
       "collection": "campaigns",
+      "via": "supporters",
       "dominant": true
     },
     "anonymous": {
@@ -31,7 +31,7 @@
     },
     "donation_ref": {
       "type": "string",
-      "required": true,
+      "required": false,
       "unique": true
     }
   }

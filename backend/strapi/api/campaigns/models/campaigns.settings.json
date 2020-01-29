@@ -49,8 +49,8 @@
       "unique": false
     },
     "supporters": {
-      "collection": "supporters",
-      "via": "campaigns"
+      "via": "campaigns",
+      "collection": "supporters"
     },
     "image": {
       "collection": "file",

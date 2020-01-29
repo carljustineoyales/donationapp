@@ -15,8 +15,8 @@ export class Donation extends Component {
       last_name: '',
       email: '',
       anonymous: false,
-      amount: '',
-      campaign: this.props.match.params.campaign,
+      amount: 1,
+      campaign: this.props.match.params.id,
       donation_ref: 'donation' + Math.floor(Math.random() * 31415926),
       error: '',
       access_token: ''
@@ -33,9 +33,9 @@ export class Donation extends Component {
       .bind(this)
   }
 
-  componentDidMount(){
-    this.paypal();
-  }
+  // componentDidMount(){
+  //   this.paypal();
+  // }
 
   handleOnSubmit = event => {
     event.preventDefault();
@@ -55,18 +55,24 @@ export class Donation extends Component {
     })
   }
 
-  paypal = () => {
-    // axios.post('http://localhost:4000/pay',{},
-    // {countValue: 1}).then(res=>{console.log(res.data)}).catch(err=>{console.log(err)})
-    const payload = {
-      data: this.state.campaign
-    }
-    axios({
-      method:"POST",
-      url:'/api/save',
-      data:payload
-    }).then(res=>{console.log(res.data)}).catch(err=>{console.log(err)})
-  }
+  // paypal = () => {
+  //   // axios.post('http://localhost:4000/pay',{},
+  //   // {countValue: 1}).then(res=>{console.log(res.data)}).catch(err=>{console.log(err)})
+  //   const payload = {
+  //     name: this.state.campaign,
+  //     price: this.state.amount,
+  //     amount:  this.state.amount,
+  //     first_name:  this.state.first_name,
+  //     last_name:  this.state.last_name,
+  //     email:  this.state.email,
+  //   }
+  //   axios({
+  //     method:"POST",
+  //     url:'/api/pay',
+  //     data:payload
+  //   }).then(res=>{console.log(res.data)}).catch(err=>{console.log(err)})
+  // }
+
 
 
   render() {
@@ -77,34 +83,74 @@ export class Donation extends Component {
         <Navbar/>
         <main>
           <div className='container'>
-            <Link to={`/campaign/${this.props.match.params.campaign}`}>Go back</Link>
+            <Link className='mb-3' to={`/campaign/${this.props.match.params.id}`} style={{display:'block'}}> Go back</Link>
             <form onSubmit={this.handleOnSubmit}>
             {/* <form action='http://localhost:4000/pay' method='post'> */}
-              <input
-                type='text'
-                name='first_name'
-                placeholder='First Name'
-                onChange={this.handleOnChange}/>
-              <input
-                type='text'
-                name='last_name'
-                placeholder='Last Name'
-                onChange={this.handleOnChange}/><br/>
-              <input type='checkbox' name='anonymous' onClick={this.handleOnClick}/>
-              <label htmlFor='anonymous'>Hide name from everyone except for the admin</label><br/>
-              <input
-                type='text'
-                name='email'
-                placeholder='Email Name'
-                onChange={this.handleOnChange}/><br/>
-              <input
-                type='number'
-                name='amount'
-                placeholder='Amount'
-                onChange={this.handleOnChange}/><br/>
-              <button type='submit'>Submit</button>
+            <div className='row'>
+            <div className='col-sm-6'>
+            
+            <div className='col-sm-12 mb-3'>
+            <h4>First Name</h4>
+            <input
+              type='text'
+              name='first_name'
+              className='form-control'
+              placeholder='First Name'
+              onChange={this.handleOnChange}/>
+            </div>
+            
+            
+            <div className='col-sm-12 mb-3'>
+            <h4>Last Name</h4>
+            <input
+              type='text'
+              name='last_name'
+              className='form-control'
+              placeholder='Last Name'
+              onChange={this.handleOnChange}/>
+            </div>
+         
+          
+            <div className='col-sm-12 mb-3'>
+            <h4>Email</h4>
+            <input
+              type='text'
+              name='email'
+              className='form-control'
+              placeholder='Email Name'
+              onChange={this.handleOnChange}/>
+            </div>
+            
+            <div className='col-sm-12 mb-3'>
+            <h4>Donate Amount</h4>
+            <input
+              type='number'
+              name='amount'
+              value={this.state.amount}
+              className='form-control'
+              placeholder='Amount'
+              onChange={this.handleOnChange}/>
+            </div>
+          
+            <div className='col-sm-12 mb-3'>
+            <input type='checkbox' name='anonymous'  onClick={this.handleOnClick}/>
+            <label htmlFor='anonymous'>Hide name from everyone except for the admin</label>
+            </div>
+          </div>
+         
+          <div className='col-sm-6'>
+          
+            <div className='col-sm-12 mb-3'>
+            <h4>Paypal</h4>
+            <PaypalButton data={this.state}/>
+            </div>
+          </div>
+            </div>
+            
+         
+            
             </form>
-            <PaypalButton/>
+            
           </div>
           
         </main>

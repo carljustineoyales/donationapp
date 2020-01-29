@@ -24,10 +24,15 @@ body nav .form-inline .col-sm-5, body nav .form-inline .col-sm {
   padding: 0.3em !important;
 }
 body main {
-  margin-top: 100px;
-  margin-bottom: 40px;
+  padding-top: 100px;
+  padding-bottom: 40px;
   font-family: 'Domine';
 }
+
+/* body main .container {
+padding-top: 100px;
+  padding-bottom: 40px;
+} */
 
 body main .container .row .col-sm form .row .col-sm {
   padding-top: 0.8em;
