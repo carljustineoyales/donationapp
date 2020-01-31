@@ -1,6 +1,6 @@
 import React, {Component, Fragment} from 'react';
 import Navbar from '../Home/Navbar';
-import {strapi} from '../functions'
+import {strapi} from '../functions';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 

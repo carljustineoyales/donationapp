@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import SupporterItem from './SupporterItem';
 import axios from 'axios';
-import {strapi} from '../functions';
+import {strapi,withToken} from '../functions';
 export class supporterTable extends Component {
 
   constructor(props) {
@@ -13,7 +13,11 @@ export class supporterTable extends Component {
   }
 
   componentDidMount(){
-    axios.get(`${strapi}/supporters`)
+    axios.get(`${strapi}/supporters`,{
+      headers:{
+        'Authorization': `Bearer ${withToken()}`
+      }
+    })
     .then(res=>{
       this.setState({
         items:res.data

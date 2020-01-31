@@ -45,7 +45,7 @@ export class Login extends Component {
           // window.location.href = '/';
         })
         .catch(err => {
-          console.log(err)
+          console.log(err.response.data.message)
         })
     })
 

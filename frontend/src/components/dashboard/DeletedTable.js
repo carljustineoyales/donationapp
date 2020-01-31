@@ -1,7 +1,7 @@
-import React, {Component} from 'react';
-import axios from 'axios';
-import {strapi} from '../functions'
-import DeletedItem from './DeletedItem'
+import  React      , {Component} from 'react'        ;
+import  axios                    from 'axios'        ;
+import {strapi     }             from '../functions' ;
+import  DeletedItem              from './DeletedItem';
 export class DeletedTable extends Component {
 
   constructor(props) {

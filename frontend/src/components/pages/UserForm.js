@@ -1,11 +1,7 @@
-import React, {Component, Fragment} from 'react';
-import Registration from '../forms/Registration';
-
-
-
-
-import axios from 'axios';
-import {strapi,withToken} from '../functions'
+import  React       , {Component, Fragment} from 'react'                ;
+import  Registration                        from '../forms/Registration';
+import  axios                               from 'axios'                ;
+import {strapi      ,withToken}             from '../functions'         ;
 
 export class UserForm extends Component {
   constructor(props) {
@@ -39,11 +35,11 @@ export class UserForm extends Component {
         this.setState({error: res.data.message, loading: false});
         return;
       }
-      sessionStorage.setItem('JWT', res.data.jwt);
-          sessionStorage.setItem('username', res.data.user.username);
-          sessionStorage.setItem('role', res.data.user.role.type);
-          sessionStorage.setItem('id', res.data.user.id);
-          this.redirect()
+      sessionStorage.setItem ('JWT', res.data.jwt               );
+      sessionStorage.setItem ('username', res.data.user.username);
+      sessionStorage.setItem ('role', res.data.user.role.type   );
+      sessionStorage.setItem ('id', res.data.user.id            );
+      this          .redirect(                                  )
     })
     .catch(err=>{console.log(err.response.data.message)})
   }
@@ -60,7 +56,6 @@ export class UserForm extends Component {
       return (
         <Fragment>
           <Registration
-            nextStep={this.nextStep}
             login={this.login}
             />
         </Fragment>

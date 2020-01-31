@@ -13,7 +13,7 @@ export class Feed extends Component {
       <Navbar/>
       <main>
         <div className='container'>
-          <CardList/>
+            <CardList/>
         </div>
         </main>
       </div>

@@ -1,7 +1,7 @@
 import React, {Component, Fragment} from 'react';
 import {Link} from 'react-router-dom'
 import axios from 'axios';
-import {strapi, getUserName} from '../functions'
+import {strapi, getUserName,withToken} from '../functions'
 import Navbar from './Navbar';
 export class CreateCampaign extends Component {
 
@@ -74,7 +74,10 @@ const data = {
       method: 'post',
       url: `${strapi}/campaigns`,
       data: bodyFormData,
-      headers: {'Content-Type': 'multipart/form-data' }
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        'Authorization': `Bearer ${withToken()}`
+       }
       })
       .then(function (response) {
           //handle success
@@ -107,57 +110,57 @@ const data = {
         <Navbar/>
         <main>
           <div className='container'>
-            <h1>Create A Campaign</h1>
+            <h1>Create A Campaign </h1>
             <form onSubmit={this.onFormSubmit}>
               <div className='form-row '>
                 <div className="col-md-12 mb-3">
-                  <label className='form-group w-100'>
+                <label for='Title'>Title <img src="https://img.icons8.com/material-rounded/18/000000/help.png"/></label>
                     <input
                       className='form-control form-control-sm'
                       type='text'
-                      placeholder='Title'
+                     
                       onChange={this.handleChange('title')}
                       value={values.title}/>
-                  </label>
+                  
                 </div>
 
               </div>
               <div className='form-row'>
                 <div className="col-md-12 mb-3">
-                  <label className='form-group w-100'>
+                <label for='Description'>Description <img src="https://img.icons8.com/material-rounded/18/000000/help.png"/></label>
                     {/* <h6>Description:</h6> */}
                     <textarea
                       className="form-control form-control-sm"
-                      placeholder='Description'
+                      
                       rows="12"
                       onChange={this.handleChange('description')}
                       value={values.description}></textarea>
-                  </label>
+                  
                 </div>
 
               </div>
               <div className='form-row'>
                 <div className="col-md-12 mb-3">
-                  <label className='form-group w-100'>
+                <label for='Goal'>Funding Goal Amount <img src="https://img.icons8.com/material-rounded/18/000000/help.png"/></label>
                     <input
                       type='number'
                       className="form-control form-control-sm"
                       placeholder='Funding Goal Amount'
                       onChange={this.handleChange('goalFund')}
                       value={values.goalFund}/>
-                  </label>
+                  
                 </div>
 
               </div>
               <div className='form-row'>
                 <div className="col-md-12 mb-3">
-                  <label className='form-group w-100'>
+                <label for='image'>Image <img src="https://img.icons8.com/material-rounded/18/000000/help.png"/></label>
                     <input
                       type='file'
-                      className="form-control form-control-sm"
+                      className="form-control-file form-control-sm"
                       onChange={this.handleChange('image')}
                       value={values.image}/>
-                  </label>
+                  
                 </div>
 
               </div>

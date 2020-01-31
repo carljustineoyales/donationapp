@@ -35,7 +35,10 @@ export class Registration extends Component {
       this.props.login(this.state.username,this.state.password);
       
     })
-    .catch(err=>{console.log(err.response.data.message)})
+    .catch(err=>{
+      console.log(this.state)
+      console.log(err.response.data.message)
+    })
    
   }
 
@@ -57,7 +60,7 @@ export class Registration extends Component {
             <div className="col-sm">
               
               
-                <label for='paypalEmail'>Paypal:</label>
+                <label for='paypalEmail'>Paypal: <img src="https://img.icons8.com/material-rounded/18/000000/help.png"/></label>
                 <input
                   className='form-control form-control-sm'
                   type='text'
@@ -69,7 +72,7 @@ export class Registration extends Component {
             </div>
             <div className="col-sm">
               
-                <label for='gcash'>Gcash No.:</label>
+                <label for='gcash'>Gcash No.: <img src="https://img.icons8.com/material-rounded/18/000000/help.png"/></label>
                 <input
                   className='form-control form-control-sm'
                   type='text'

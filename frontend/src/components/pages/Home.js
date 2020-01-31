@@ -18,9 +18,9 @@ export class Home extends Component {
   render() {
     if (withToken()) {
       return (
-        <div>
+        <Fragment>
           <Feed/>
-        </div>
+        </Fragment>
       );
 
     } else {

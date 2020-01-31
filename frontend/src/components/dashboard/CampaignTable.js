@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
-import IncomingTable from './IncomingTable'
-import DeletedTable from './DeletedTable';
-import SupporterTable from './SupporterTable'
+import React          , {Component} from 'react'            ;
+import IncomingTable                from './IncomingTable'  ;
+import DeletedTable                 from './DeletedTable'   ;
+import SupporterTable               from './SupporterTable' ;
+import UsersTable                   from './UsersTable'     ;
 
-import UsersTable from './UsersTable';
 export class CampaignTable extends Component {
   constructor(props) {
     super(props);

@@ -10,6 +10,17 @@
   <li>Bootstrap Framework</li>
 </ul>
 
+<h2>Jan 31 2020</h2>
+<ul>
+  <li>Integrate Reactjs to serverjs</li>
+  <li>create server.js</li>
+  <li>Remove node_paypal</li>
+</ul>
+<h2>Jan 30 2020</h2>
+<ul>
+  <li>Deployed strapi backend to heroku</li>
+  <li>fixed strapi backend issues</li>
+</ul>
 <h2>Jan 29 2020</h2>
 <ul>
   <li>Initial Commit</li>
@@ -18,4 +29,6 @@
   <li>Design donation page using bootstrap framework</li>
   <li>Pass data from Reactjs to ExpressJS</li>
   <li>Save data from ExpressJS to Strapi.io</li>
+  <li>added icons from icons8</li>
+  <li>updated some packages</li>
 </ul>

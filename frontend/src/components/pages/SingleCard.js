@@ -1,8 +1,8 @@
-import React, {Component, Fragment} from 'react';
-import axios from 'axios';
-import {strapi, getRole, getUserName, withToken} from '../functions'
-import {Link} from 'react-router-dom';
-import Navbar from '../Home/Navbar';
+import  React  , {Component, Fragment}           from 'react'            ;
+import  axios                                    from 'axios'            ;
+import {strapi, getRole, getUserName, withToken} from '../functions'     ;
+import {Link   }                                 from 'react-router-dom' ;
+import  Navbar                                   from '../Home/Navbar'   ;
 export class SingleCard extends Component {
   constructor(props) {
     super(props);
@@ -15,8 +15,8 @@ export class SingleCard extends Component {
       id: '',
       author: [],
       error: '',
-      deleted:false,
-      verified:false,
+      deleted: false,
+      verified: false
     }
   }
 
@@ -33,15 +33,13 @@ export class SingleCard extends Component {
           description: res.data.description,
           author: res.data.author,
           username: res.data.author.username,
-          deleted:res.data.deleted,
-          verified:res.data.verified,
+          deleted: res.data.deleted,
+          verified: res.data.verified
         })
         console.log(this.state)
       })
       .catch(err => console.log(err))
-     
-       
-      
+
   }
 
   toggleEditMode = (event) => {
@@ -150,16 +148,27 @@ export class SingleCard extends Component {
                   }}>
                     {editMode
                       ? (
-                        <Fragment><input type='text' value={title} className='form-control' onChange={this.handleOnChange('title')}/><br/></Fragment>
+                        <Fragment><input
+                          type='text'
+                          value={title}
+                          className='form-control'
+                          onChange={this.handleOnChange('title')}/><br/></Fragment>
                       )
                       : <h1>{title}</h1>
 }
                     {editMode
-                      ? <input type='number' className='form-control w-25' value={goal} onChange={this.handleOnChange('goal')}/>
+                      ? <input
+                          type='number'
+                          className='form-control w-25'
+                          value={goal}
+                          onChange={this.handleOnChange('goal')}/>
                       : <h2 className="text">{goal}</h2>
 }
-{
-  (deleted) ? <h6>Status: Deleted</h6> : (verified) ? <h6>Status: Active</h6> : <h6>Status: Pending</h6>
+                    {(deleted)
+                      ? <h6>Status: Deleted</h6>
+                      : (verified)
+                        ? <h6>Status: Active</h6>
+                        : <h6>Status: Pending</h6>
 }
                   </div>
                   <br/>

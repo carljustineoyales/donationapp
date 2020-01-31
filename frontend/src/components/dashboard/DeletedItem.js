@@ -1,7 +1,7 @@
-import React, {Component, Fragment} from 'react';
-import Moment from 'react-moment'
-import axios from 'axios'
-import {strapi} from '../functions'
+import  React , {Component, Fragment} from 'react'       ;
+import  Moment                        from 'react-moment';
+import  axios                         from 'axios'       ;
+import {strapi,withToken}             from '../functions';
 
 export class DeletedItem extends Component {
   constructor(props) {
@@ -18,7 +18,11 @@ export class DeletedItem extends Component {
       deleted: false,
     }
     axios
-      .put(`${strapi}/campaigns/${this.props.item.id}`, data)
+      .put(`${strapi}/campaigns/${this.props.item.id}`,{
+        headers:{
+          'Authorization':`Bearer ${withToken()}`
+        }
+      }, data)
       .then(res => {
         console.log(res.data)
         this.setState({clicked: !this.state.clicked})

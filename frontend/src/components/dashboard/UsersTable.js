@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios'
-import {strapi} from '../functions'
+import {strapi,withToken} from '../functions'
 import UsersItem from './UsersItem'
 export class UsersTable extends Component {
   constructor(props) {
@@ -13,7 +13,11 @@ export class UsersTable extends Component {
   componentDidMount() {
     this._isMounted = true;
     axios
-      .get(`${strapi}/users`)
+      .get(`${strapi}/users`,{
+        headers:{
+          'Authorization':`Bearer ${withToken()}`
+        }
+      })
       .then(res => {
         if (this._isMounted) {
           
