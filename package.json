@@ -1,0 +1,30 @@
+{
+  "name": "donationapp",
+  "version": "1.0.0",
+  "description": "<h1>Donation Application</h1>",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client":"cd frontend && npm start",
+    "dev":"concurrently \"npm run server\" \"npm run client \""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/carljustineoyales/donationapp.git"
+  },
+  "author": "cjoyales",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/carljustineoyales/donationapp/issues"
+  },
+  "homepage": "https://github.com/carljustineoyales/donationapp#readme",
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "axios": "^0.19.2",
+    "concurrently": "^5.1.0",
+    "express": "^4.17.1"
+  }
+}
