@@ -20,6 +20,7 @@
 <ul>
   <li>Deployed strapi backend to heroku</li>
   <li>fixed strapi backend issues</li>
+  <li>reconfigure strapi for deployment</li>
 </ul>
 <h2>Jan 29 2020</h2>
 <ul>
